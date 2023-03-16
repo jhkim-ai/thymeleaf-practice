@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.koscom.demo.dao.TestDao">
+    <select id="getUser" resultType="GetUserResponseDto">
+        select *
+        from users;
+    </select>
+    
+    <select id="getOneUser" parameterType="String" resultType="GetUserResponseDto">
+        select *
+        from users
+        where user_Id = #{userId};
+    </select>
+
+    <insert id="addUser" parameterType="User">
+        insert into users
+        values(
+                #{userId}
+            ,   #{userName}
+            ,   #{userType}
+            ,   #{userStat}
+        )
+    </insert>
+
+    <delete id="deleteUser" parameterType="String">
+        delete from users where user_Id = #{userId}
+    </delete>
+
+    <update id="updateUser" parameterType="User">
+        update users
+            set user_name = #{userName}
+            ,   user_type = #{userType}
+            ,   user_stat = #{userStat}
+        where user_id = #{userId}
+    </update>
+</mapper>

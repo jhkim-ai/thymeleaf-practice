@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link th:href="@{/css/test.css}" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <h1>회원정보 페이지</h1>
+    <div>
+        <table class="test">
+            <tr>
+                <th>ID</th>
+                <th>사용자명</th>
+                <th>유저 타입</th>
+                <th>유저 상태</th>
+                <th>삭제</th>
+                <th>수정</th>
+            </tr>
+            <tr th:each="item : ${items}">
+                <td th:text="${item.userId}"></td>
+                <td th:text="${item.userName}"></td>
+                <td th:text="${item.userType}"></td>
+                <td th:text="${item.userStat}"></td>
+                <td><button th:onclick="|location.href='@{/index/delete/{userId}(userId=${item.userId})}'|">삭제</button></td>
+                <td><button th:onclick="|location.href='@{/index/move/update/{userId}(userId=${item.userId})}'|">수정</button></td>
+            </tr>
+        </table>
+    </div>
+    <br>
+    <div>
+        <button th:onclick="|location.href='@{/index/move/add}'|">추가</button>
+    </div>
+</body>
+<script>
+    
+</script>
+</html>
