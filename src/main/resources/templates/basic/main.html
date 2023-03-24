@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link th:href="@{/css/test.css}" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Markdown 페이지</h1>
+    
+    <br>
+    <br>
+    <br>
+
+    <ul>Object
+        <li>${user.userName} = <span th:text="${user.userName}"></span></li>
+        <li>${user['userName']} = <span th:text="${user['userName']}"></span></li>
+        <li>${user.getUserName()} = <span th:text="${user.getUserName()}"></span></li>
+    </ul>
+    <ul>List
+        <li>${users[0].userName} = <span th:text="${users[0].userName}"></span></li>
+        <li>${users[0]['userName']} = <span th:text="${users[0]['userName']}"></span></li>
+        <li>${users[0].getUserName()} = <span th:text="${users[0].getUserName()}"></span></li>
+    </ul>
+    <ul>Map
+        <li>${userMap['userMap'].userName} = <span th:text="${userMap['userMap'].userName}"></span></li>
+        <li>${userMap['userMap']['userName']} = <span th:text="${userMap['userMap']['userName']}"></span></li>
+        <li>${userMap['userMap'].getUserName()} = <span th:text="${userMap['userMap'].getUserName()}"></span></li>
+    </ul>
+
+    <br>
+    <br>
+    <br>
+
+    <div th:with="item=${users[0]}">
+        <ul>
+            <li>이름 : <span th:text="${item.userName}"></span></li>
+            <li>유형 : [[${item.userType}]]</li>
+        </ul>
+    </div>
+
+</body>
+<script>
+    
+</script>
+</html>

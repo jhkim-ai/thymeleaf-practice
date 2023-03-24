@@ -1,5 +1,6 @@
 spring:
     thymeleaf:
+        cache: false
         prefix: classpath:/templates/
         suffix: .html
         
@@ -24,6 +25,6 @@ spring:
 
 mybatis:
     mapper-locations: mapper/**/*.xml
-    type-aliases-package: com.koscom.demo.protocol # result type의 package명을 생략해도 되는 곳 설정
+    type-aliases-package: com.koscom.demo.protocol # resultType의 package명을 생략해도 되는 곳 설정
     configuration:
-        map-underscore-to-camel-case: true # DB 필드의 '_' 형싱을 Camel Case로 변경
+        map-underscore-to-camel-case: true # DB 필드의 '_' 형식을 Camel Case로 변경
