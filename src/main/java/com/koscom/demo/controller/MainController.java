@@ -35,7 +35,7 @@ public class MainController {
         model.addAttribute("user", user);
         model.addAttribute("users", users);
         model.addAttribute("userMap", userMap);
-        
+        // test
         return "basic/main";
     }
     
